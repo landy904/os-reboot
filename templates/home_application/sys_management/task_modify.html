@@ -1,0 +1,78 @@
+<div id="check_modify_page" style="width:100%;overflow-y: auto;padding-top:5px;">
+    <div class="panel panel-default mb0" style="height: 100%;margin-bottom: 0">
+        <div class="panel-body" style="height: 100%;width:100%;margin: 0 auto;">
+            <div class="form-horizontal">
+            <div class="form-group">
+                        <label class="col-sm-3 control-label">任务名称：</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="task_name" value="${check_task.name}">
+                        </div>
+                        <span class="text-danger mt5 fl">*</span>
+            </div>
+            <input type="hidden" value="${check_task.id}" id="task_id" />
+            <input type="text" style="display: none;" value="${check_task.os_type}" id="os_type"/>
+            <div class="form-group">
+                        <label class="col-sm-3 control-label">系统类型：</label>
+                        <div class="col-sm-7 plugin3_demo" id="sys_select"  style="display:inline-block;">
+                            <input type="hidden" onchange="get_os_type()" class="select2_box" style="width:100%;">
+                        </div>
+                        <span class="text-danger mt5 fl">*</span>
+                    </div>
+            <input type="text" style="display: none;" value="${check_task.operation_type}" id="operation_type"/>
+            <div class="form-group">
+                        <label class="col-sm-4 control-label">操作类型：</label>
+                        <div class="col-sm-7 plugin3_demo" id="operation_select" style="display:inline-block;">
+                            <input type="hidden" onchange="get_operation_type()"  class="select2_box" style="width:100%;">
+                        </div>
+                        <span class="text-danger mt5 fl">*</span>
+                    </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">选择服务器：</label>
+                <div class="col-sm-8">
+                    <button onclick="select_server()" class="king-btn-demo king-btn king-primary">选择服务器</button>
+                </div>
+                <div style="padding-left: 3%;" id="server_p">
+                    <div class="col-sm-10" style="padding-left:129px;width:74%;overflow-y: auto;">
+                        <div id="server_list" class="demo"
+                             style="margin-top: 5px;border-radius: 0;overflow-y: auto;overflow-x: hidden;margin-bottom: 0 !important;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                        <label class="col-sm-3 control-label">执行时间：</label>
+                        <input type="text" id="task_run_time" value="${check_task.celery_task_control.time}"
+                           style="display: none"/>
+                        <div class="col-sm-8">
+                            <!--div style="width:100%;height: 40px;padding-top: 5px;">
+                                <input onchange="change_value('01')" type="radio" checked name="time_select"
+                                       value="NOW"/><label>立即</label></div>
+                            <div style="width:100%;height: 40px;"-->
+                            <div style="float:left;height: 40px;padding-top: 5px;">
+                                <input onchange="change_value('01')" type="radio" checked name="time_select" value="TIMER"/>
+                                <label>定时 ———</label>
+                            </div>
+                            <div style="margin-left: 15px;height: 35px;padding:2.5px;float:left;">
+                                    <label>开始时间：</label>
+                                    <input type="text" style="width: 120px;" class="form-control" id="date_start"
+                                           placeholder="选择日期...">
+                                    <input id="timer_hour" disabled="disabled" class="period" style="width: 50px;"
+                                           type="text"> 时
+                                    <input id="timer_minu" class="period" disabled="disabled"
+                                           style="width: 50px;" type="text"> 分
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            <!--div class="ui-ui" style="position: relative; z-index: 0;">
+                <div class="form-group clearfix p30">
+                    <div class="col-sm-7 col-sm-offset-3">
+                        <button  onclick="confirm()" type="button" class="king-btn king-primary mr10 navbar-blue">确定</button>
+                        <button onclick="cancel()" class="king-btn king-default">取消</button>
+                    </div>
+                </div>
+            </div-->
+        </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="${STATIC_URL}js/sys_management/task_modify.js"></script>

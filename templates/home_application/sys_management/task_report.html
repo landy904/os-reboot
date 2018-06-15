@@ -1,0 +1,35 @@
+<%inherit file="/base.html"/>
+<%block name='head'>
+${parent.head()}
+</%block>
+<%block name="content">
+<div style="width: 100%; height: 100%; padding: 5px;margin-top: 5px;">
+    <div class="fieldset mb10" style="padding-top:30px;padding-bottom: 15px;">
+        <div class="legend">查询条件</div>
+        <div class="container-fluid" style="overflow-y: auto">
+            <div class="form-group" style="float:left;width:300px;margin-left: 10px;">
+                <label>任务名称：</label>
+                <input id="inp_task_name_filter" type="text" style="width:200px;" class="form-control"
+                       placeholder="请输入任务名称"/>
+            </div>
+             <!--div class="form-group" style="float:left;width:300px;margin-left: 10px;">
+                <label>执行结果：</label>
+                <div class="plugin3_demo" id="result_select" style="display:inline-block;margin-right: 10px;">
+                    <input type="hidden" class="select2_box" style="width:180px;">
+                </div>
+            </div-->
+            <div style="float: left">
+                <button type="button" onclick="search_task()" class="king-btn-demo king-btn king-primary">
+                    <i class="fa fa-search btn-icon"></i>搜索
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="table_task" style="width:100%;overflow-y: auto;overflow-x: hidden;">
+        <div id="task_list" class="demo" style="margin-top: 5px;overflow-y: auto;overflow-x: hidden;"></div>
+    </div>
+
+</div>
+</%block>
+<script type="text/javascript" src="${STATIC_URL}js/sys_management/task_search.js"></script>
